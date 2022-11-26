@@ -27,10 +27,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Auth',
     'api',
+    'product',
     'rest_framework',
     'rest_framework_simplejwt',
     'djoser',
-    'rest_framework_swagger'
+    'rest_framework_swagger',
+    
 
 ]
 

@@ -4,6 +4,6 @@ urlpatterns = [
     # Swagger
     path('', get_swagger_view(title='Ecommerce API')),
     path('auth/', include('Auth.urls'), name="User_auth"),
-    
+    path('product/', include('product.urls'), name="Product"),
     
 ]
