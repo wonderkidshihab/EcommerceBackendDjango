@@ -6,7 +6,7 @@ class Category(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    icon = models.ImageField(upload_to='icons', blank=True, null=True)
+    icon = models.ImageField(upload_to='./static/icons', blank=True, null=True)
     sub_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
@@ -20,7 +20,7 @@ class SubCategory(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    icon = models.ImageField(upload_to='icons', blank=True, null=True)
+    icon = models.ImageField(upload_to='./static/icons', blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='product/thumbnail', null=True, blank=True)
+    thumbnail = models.ImageField(upload_to='./static/product/thumbnail', null=True, blank=True)
     images = models.ManyToManyField('ProductImage', blank=True)
     
     def __str__(self):
@@ -64,7 +64,7 @@ class Product(models.Model):
         
 
 class ProductImage(models.Model):
-    image = models.ImageField(upload_to='product/images')
+    image = models.ImageField(upload_to='./static/product/images')
 
     def __str__(self):
         return self.image.url
