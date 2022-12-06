@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,7 +36,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'webutils',
-    
+    'order'
+
 
 ]
 
@@ -57,6 +59,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
+}
+
 
 ROOT_URLCONF = 'Ecommerce.urls'
 

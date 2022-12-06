@@ -8,9 +8,9 @@ schema_view = get_schema_view(
         default_version='v1',
         description="Ecommerce API",
     ),
-    
+
     public=True,
-    
+
 )
 urlpatterns = [
     # Swagger
@@ -19,5 +19,5 @@ urlpatterns = [
          cache_timeout=0), name='schema-swagger-ui'),
     path('auth/', include('Auth.urls'), name="User_auth"),
     path('webutils/', include('webutils.urls'), name="Webutils"),
-
+    path('cart/', include('order.urls'), name="Cart-Order"),
 ]
